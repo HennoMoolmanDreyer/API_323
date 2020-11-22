@@ -21,7 +21,6 @@ app.get('/', (req,res) => {
 });
 
 
-
 //connect to db
 mongoose.connect(
     process.env.DB_CONNECTION,
@@ -33,6 +32,5 @@ con.on('open', function(){
     console.log('conection...')
 });
 
-
 //start listen
-app.listen(3000);
+app.listen(6000);

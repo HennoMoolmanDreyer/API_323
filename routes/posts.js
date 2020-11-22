@@ -11,7 +11,7 @@ while(!correct){
         console.log(req.file);
         res.send('confirm data');
     });
-    correct=0; 
+    correct=1; 
 }
 
 
