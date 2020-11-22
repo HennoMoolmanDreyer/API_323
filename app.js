@@ -11,7 +11,7 @@ const postsRoute = require('./routes/posts');
 
 app.use('/posts', postsRoute);
 //authentification here
-
+//DB config
 
 
 //routes
@@ -33,4 +33,4 @@ con.on('open', function(){
 });
 
 //start listen
-app.listen(6000);
+app.listen(2000);

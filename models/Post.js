@@ -10,6 +10,7 @@ const PostSchema = mongoose.Schema({
         type: String,
         required: true
     }
+    
 });
 
 // mongoose.Schema({
