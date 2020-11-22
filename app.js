@@ -14,7 +14,6 @@ app.use('/posts', postsRoute);
 
 
 
-
 //routes
 //post for login
 app.get('/', (req,res) => {
@@ -26,9 +25,14 @@ app.get('/', (req,res) => {
 //connect to db
 mongoose.connect(
     process.env.DB_CONNECTION,
-    { useNewUrlParser: true },
-    ()=> console.log('connected to db')
+    { useNewUrlParser: true,useUnifiedTopology: true },
+    ()=> console.log(process.env.DB_CONNECTION)
 );
+const con=mongoose.connection;
+con.on('open', function(){
+    console.log('conection...')
+});
+
 
 //start listen
 app.listen(3000);

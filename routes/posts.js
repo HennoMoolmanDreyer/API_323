@@ -1,10 +1,21 @@
 const express = require('express');
 const router = express.Router();
 const Post = require('../models/Post');
+const multer = require('multer');
+const upload = multer({dest: 'uploads/'});
 
-router.get('/', (req,res) => {
-    res.send('were post');
-});
+var correct=0;
+console.log('now..')
+while(!correct){
+    router.get('/',upload.single('fileU'), (req,res) => {
+        console.log(req.file);
+        res.send('confirm data');
+    });
+    correct=0; 
+}
+
+
+
 
 
 router.post('/', async (req,res) =>{
@@ -21,5 +32,6 @@ router.post('/', async (req,res) =>{
     }
     
 });
+
 
 module.exports = router;
