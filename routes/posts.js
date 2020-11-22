@@ -7,21 +7,19 @@ router.get('/', (req,res) => {
 });
 
 
-router.post('/', (req,res) =>{
+router.post('/', async (req,res) =>{
     const post = new Post({
         title: req.body.title,
         fname: req.body.fname,
         lname: req.body.lname
     });
-
-    post.save()
-        .then(data => {
-            res.json(data); //res.status(200).json(data);
-        })
-        .catch(err => {
-            res.json({ message: err })
-        });
+    try{
+        const savedPost = await post.save();
+        res.json(savedPost);
+    } catch (err) {
+        res.json({ message: err});
+    }
+    
 });
-
 
 module.exports = router;
